@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+
+    string urlWebApi = System.Configuration.ConfigurationManager.AppSettings["UrlWebApi"];
+}
+
+<div class="jumbotron">
+    <h1>Go Socket Evaluación Técnica</h1>
+    <div class="col-md-4">
+        <h2>Ejecución 1</h2>
+        <p>
+            <button id="btnNumberAreas" class="btn btn-primary">No. Número de Areas</button>
+        </p>
+
+    </div>
+    <div class="col-md-4">
+        <h2>Ejecución 2</h2>
+        <p>
+            <button id="btnNumberAreasEmployee" class="btn btn-primary">No. de Areas con más de 2 empelados</button>
+        </p>
+
+    </div>
+    <div class="col-md-4">
+        <h2>Ejecución 3</h2>
+        <p>
+            <button id="btnInformationSalary" class="btn btn-primary">Salario por Área</button>
+        </p>
+
+    </div>
+    <div class="row"><br /></div>
+
+</div>
+
+@section scripts{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+    <script src="~/Assets/JavaScript/HomeIndex.js"></script>
+    <script>
+    $(document).ready(function () {
+
+        var args = {
+            UrlWepApi: '@urlWebApi'
+        };
+
+        GoSocket.HomeIndex.npMainFunction(args);
+    });
+    </script>
+}
